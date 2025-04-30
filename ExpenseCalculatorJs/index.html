@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Expense Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .expense-form {
+            margin-bottom: 20px;
+        }
+        .expense-input {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Monthly Expense Calculator</h1>
+        
+        <div class="expense-form">
+            <div class="expense-input">
+                <input type="text" id="expenseName" placeholder="Expense name">
+                <input type="number" id="expenseAmount" placeholder="Amount" min="0" step="0.01">
+                <button onclick="addExpense()">Add Expense</button>
+            </div>
+        </div>
+
+        <table id="expensesTable">
+            <thead>
+                <tr>
+                    <th>Expense Name</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expensesTableBody">
+            </tbody>
+        </table>
+
+        <button onclick="calculateExpenses()">Calculate</button>
+
+        <div class="results" id="results" style="display: none;">
+            <h2>Results</h2>
+            <p>Total Expenses: $<span id="totalExpenses">0.00</span></p>
+            <h3>Top 3 Largest Expenses:</h3>
+            <ul id="topExpenses">
+            </ul>
+            <p>Average Daily Expenses: $<span id="dailyAverage">0.00</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
